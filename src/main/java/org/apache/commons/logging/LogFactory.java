@@ -38,7 +38,7 @@ import org.apache.commons.logging.impl.JBossLogFactory;
  *
  * @version $Id: LogFactory.java 1606041 2014-06-27 11:56:59Z tn $
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({ "unused", "WeakerAccess" })
 public abstract class LogFactory {
 
     private static class Holder {
@@ -109,8 +109,7 @@ public abstract class LogFactory {
      * JDK1.3+ <a href="http://java.sun.com/j2se/1.3/docs/guide/jar/jar.html#Service%20Provider">
      * 'Service Provider' specification</a>.
      */
-    protected static final String SERVICE_ID =
-            "META-INF/services/org.apache.commons.logging.LogFactory";
+    protected static final String SERVICE_ID = "META-INF/services/org.apache.commons.logging.LogFactory";
 
     /**
      * The name (<code>org.apache.commons.logging.diagnostics.dest</code>)
@@ -127,8 +126,7 @@ public abstract class LogFactory {
      * Diagnostic org.apache.commons.logging should be used only to debug problematic
      * configurations and should not be set in normal production use.
      */
-    public static final String DIAGNOSTICS_DEST_PROPERTY =
-            "org.apache.commons.logging.diagnostics.dest";
+    public static final String DIAGNOSTICS_DEST_PROPERTY = "org.apache.commons.logging.diagnostics.dest";
 
     /**
      * Setting this system property
@@ -137,15 +135,18 @@ public abstract class LogFactory {
      * classloaders to be substituted by an alternative implementation.
      * <p>
      * <strong>Note:</strong> <code>LogFactory</code> will print:
+     *
      * <pre>
      * [ERROR] LogFactory: Load of custom hashtable failed
      * </pre>
+     *
      * to system error and then continue using a standard Hashtable.
      * <p>
      * <strong>Usage:</strong> Set this property when Java is invoked
      * and <code>LogFactory</code> will attempt to load a new instance
      * of the given implementation class.
      * For example, running the following ant scriplet:
+     *
      * <pre>
      *  &lt;java classname="${test.runner}" fork="yes" failonerror="${test.failonerror}"&gt;
      *     ...
@@ -154,6 +155,7 @@ public abstract class LogFactory {
      *        value="org.apache.commons.logging.AltHashtable"/&gt;
      *  &lt;/java&gt;
      * </pre>
+     *
      * will mean that <code>LogFactory</code> will load an instance of
      * <code>org.apache.commons.logging.AltHashtable</code>.
      * <p>
@@ -165,8 +167,7 @@ public abstract class LogFactory {
      * This property is not used and only here to provide compatibility.
      * </p>
      */
-    public static final String HASHTABLE_IMPLEMENTATION_PROPERTY =
-            "org.apache.commons.logging.LogFactory.HashtableImpl";
+    public static final String HASHTABLE_IMPLEMENTATION_PROPERTY = "org.apache.commons.logging.LogFactory.HashtableImpl";
 
     // ----------------------------------------------------------- Constructors
 
@@ -188,7 +189,7 @@ public abstract class LogFactory {
 
     /**
      * Return an array containing the names of all currently defined
-     * configuration attributes.  If there are no such attributes, a zero
+     * configuration attributes. If there are no such attributes, a zero
      * length array is returned.
      */
     public abstract String[] getAttributeNames();
@@ -227,9 +228,9 @@ public abstract class LogFactory {
 
     /**
      * Release any internal references to previously created {@link Log}
-     * instances returned by this factory.  This is useful in environments
+     * instances returned by this factory. This is useful in environments
      * like servlet containers, which implement application reloading by
-     * throwing away a ClassLoader.  Dangling references to objects in that
+     * throwing away a ClassLoader. Dangling references to objects in that
      * class loader would prevent garbage collection.
      */
     public abstract void release();
@@ -243,7 +244,7 @@ public abstract class LogFactory {
     public abstract void removeAttribute(String name);
 
     /**
-     * Set the configuration attribute with the specified name.  Calling
+     * Set the configuration attribute with the specified name. Calling
      * this with a <code>null</code> value is equivalent to calling
      * <code>removeAttribute(name)</code>.
      *
@@ -295,7 +296,7 @@ public abstract class LogFactory {
      * property.</li>
      * <li>The JDK 1.3 Service Discovery mechanism</li>
      * <li>Use the properties file <code>commons-org.apache.commons.logging.properties</code>
-     * file, if found in the class path of this class.  The configuration
+     * file, if found in the class path of this class. The configuration
      * file is in standard <code>java.util.Properties</code> format and
      * contains the fully qualified name of the implementation class
      * with the key being the system property defined above.</li>
@@ -362,7 +363,7 @@ public abstract class LogFactory {
     /**
      * Release any internal references to previously created {@link org.apache.commons.logging.LogFactory}
      * instances, after calling the instance method <code>release()</code> on
-     * each of them.  This is useful in environments like servlet containers,
+     * each of them. This is useful in environments like servlet containers,
      * which implement application reloading by throwing away a ClassLoader.
      * Dangling references to objects in that class loader would prevent
      * garbage collection.
@@ -417,7 +418,7 @@ public abstract class LogFactory {
      * support for that.
      *
      * @return the context classloader associated with the current thread,
-     * or null if security doesn't allow it.
+     *         or null if security doesn't allow it.
      *
      * @throws LogConfigurationException if there was some weird error while
      *                                   attempting to get the context classloader.
@@ -440,8 +441,8 @@ public abstract class LogFactory {
      * and we don't want too much output generated here.
      *
      * @return the thread's context classloader or {@code null} if the java security
-     * policy forbids access to the context classloader from one of the classes
-     * in the current call stack.
+     *         policy forbids access to the context classloader from one of the classes
+     *         in the current call stack.
      *
      * @throws LogConfigurationException if a suitable class loader
      *                                   cannot be identified.
@@ -497,8 +498,8 @@ public abstract class LogFactory {
      * @since 1.1
      */
     protected static org.apache.commons.logging.LogFactory newFactory(final String factoryClass,
-                                                                      final ClassLoader classLoader,
-                                                                      final ClassLoader contextClassLoader)
+            final ClassLoader classLoader,
+            final ClassLoader contextClassLoader)
             throws LogConfigurationException {
         throw new UnsupportedOperationException();
     }
@@ -519,7 +520,7 @@ public abstract class LogFactory {
      * value output to the diagnostics will not report the correct value.
      */
     protected static org.apache.commons.logging.LogFactory newFactory(final String factoryClass,
-                                                                      final ClassLoader classLoader) {
+            final ClassLoader classLoader) {
         throw new UnsupportedOperationException();
     }
 

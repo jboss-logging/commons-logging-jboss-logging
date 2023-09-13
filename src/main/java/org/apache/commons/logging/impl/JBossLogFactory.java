@@ -40,8 +40,7 @@ public class JBossLogFactory extends LogFactory {
     private static final Collection<String> UNSUPPORTED_PROPERTIES = Arrays.asList(
             LogFactory.FACTORY_PROPERTY,
             "org.apache.commons.logging.Log",
-            "org.apache.commons.logging.log"
-    );
+            "org.apache.commons.logging.log");
 
     // Note that this is effectively static. This could be problematic with if a log manager uses different contexts.
     // However it's not worth the overhead of trying to determine when a new attribute map would be required given that
@@ -53,7 +52,6 @@ public class JBossLogFactory extends LogFactory {
     public Object getAttribute(final String name) {
         return getAttributeMap().get(name);
     }
-
 
     @Override
     @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
@@ -98,7 +96,8 @@ public class JBossLogFactory extends LogFactory {
             attributes.remove(name);
         } else {
             if (!(value instanceof String)) {
-                logger.warnf("Attribute values must be of type java.lang.String. Attribute %s with value %s will be ignored.", name, value);
+                logger.warnf("Attribute values must be of type java.lang.String. Attribute %s with value %s will be ignored.",
+                        name, value);
             } else if (UNSUPPORTED_PROPERTIES.contains(name)) {
                 logger.warnf("Attribute %s is not supported. Value %s will be ignored.", name, value);
             } else {
