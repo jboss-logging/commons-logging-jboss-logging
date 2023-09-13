@@ -40,13 +40,12 @@ public class JBossLogFactory extends LogFactory {
     private static final Collection<String> UNSUPPORTED_PROPERTIES = Arrays.asList(
             LogFactory.FACTORY_PROPERTY,
             "org.apache.commons.logging.Log",
-            "org.apache.commons.logging.log"
-    );
+            "org.apache.commons.logging.log");
 
     // Note that this is effectively static. This could be problematic with if a log manager uses different contexts.
-    // However it's not worth the overhead of trying to determine when a new attribute map would be required given that
+    // However, it's not worth the overhead of trying to determine when a new attribute map would be required given that
     // it's like not a common API.
-    private final Map<String, Object> attributeMap = Collections.synchronizedMap(new HashMap<String, Object>());
+    private final Map<String, Object> attributeMap = Collections.synchronizedMap(new HashMap<>());
     private final Logger logger = Logger.getLogger(JBossLogFactory.class.getPackage().getName());
 
     @Override
@@ -54,15 +53,13 @@ public class JBossLogFactory extends LogFactory {
         return getAttributeMap().get(name);
     }
 
-
     @Override
-    @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
     public String[] getAttributeNames() {
         final Map<String, Object> attributes = getAttributeMap();
         final String[] names;
         synchronized (attributes) {
             final Set<String> s = attributes.keySet();
-            names = s.toArray(new String[s.size()]);
+            names = s.toArray(new String[0]);
         }
         return names;
     }
@@ -98,7 +95,8 @@ public class JBossLogFactory extends LogFactory {
             attributes.remove(name);
         } else {
             if (!(value instanceof String)) {
-                logger.warnf("Attribute values must be of type java.lang.String. Attribute %s with value %s will be ignored.", name, value);
+                logger.warnf("Attribute values must be of type java.lang.String. Attribute %s with value %s will be ignored.",
+                        name, value);
             } else if (UNSUPPORTED_PROPERTIES.contains(name)) {
                 logger.warnf("Attribute %s is not supported. Value %s will be ignored.", name, value);
             } else {

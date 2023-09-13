@@ -20,7 +20,7 @@
 package org.apache.commons.logging;
 
 /**
- * A simple org.apache.commons.logging interface abstracting org.apache.commons.logging APIs.  In order to be
+ * A simple org.apache.commons.logging interface abstracting org.apache.commons.logging APIs. In order to be
  * instantiated successfully by {@link LogFactory}, classes that implement
  * this interface must have a constructor that takes a single String
  * parameter representing the "name" of this Log.
@@ -45,6 +45,7 @@ package org.apache.commons.logging;
  * to be logged).
  * <p>
  * For example,
+ *
  * <pre>
  *    if (log.isDebugEnabled()) {
  *        ... do something expensive ...
@@ -72,7 +73,7 @@ public interface Log {
      * Logs an error with debug log level.
      *
      * @param message log this message
-     * @param t log this cause
+     * @param t       log this cause
      */
     void debug(Object message, Throwable t);
 
@@ -87,7 +88,7 @@ public interface Log {
      * Logs an error with error log level.
      *
      * @param message log this message
-     * @param t log this cause
+     * @param t       log this cause
      */
     void error(Object message, Throwable t);
 
@@ -102,7 +103,7 @@ public interface Log {
      * Logs an error with fatal log level.
      *
      * @param message log this message
-     * @param t log this cause
+     * @param t       log this cause
      */
     void fatal(Object message, Throwable t);
 
@@ -117,7 +118,7 @@ public interface Log {
      * Logs an error with info log level.
      *
      * @param message log this message
-     * @param t log this cause
+     * @param t       log this cause
      */
     void info(Object message, Throwable t);
 
@@ -198,7 +199,7 @@ public interface Log {
      * Logs an error with trace log level.
      *
      * @param message log this message
-     * @param t log this cause
+     * @param t       log this cause
      */
     void trace(Object message, Throwable t);
 
@@ -213,7 +214,7 @@ public interface Log {
      * Logs an error with warn log level.
      *
      * @param message log this message
-     * @param t log this cause
+     * @param t       log this cause
      */
     void warn(Object message, Throwable t);
 }

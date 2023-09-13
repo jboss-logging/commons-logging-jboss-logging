@@ -1,0 +1,20 @@
+= Commons Logging JBoss Logging
+
+This project implements https://commons.apache.org/proper/commons-logging/[Apache Commons Logging] redirecting logging
+to use https://github.com/jboss-logging/jboss-logging[jboss-logging].
+
+== Usage
+
+=== Maven
+[source,xml]
+----
+<dependency>
+    <groupId>org.jboss.logging</groupId>
+    <artifactId>jboss-commons-logging-jboss-logging</artifactId>
+    <version>${version.org.jboss.commons-logging-jboss-logging}</version>
+</dependency>
+----
+
+== Contributing
+
+See the link:CONTRIBUTING.adoc[contributing guide].

@@ -26,7 +26,7 @@ package org.apache.commons.logging;
  *
  * @version $Id: LogConfigurationException.java 1432663 2013-01-13 17:24:18Z tn $
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({ "unused", "WeakerAccess" })
 public class LogConfigurationException extends RuntimeException {
 
     /** Serializable version identifier. */
@@ -62,7 +62,7 @@ public class LogConfigurationException extends RuntimeException {
      * Construct a new exception with the specified detail message and cause.
      *
      * @param message The detail message
-     * @param cause The underlying cause
+     * @param cause   The underlying cause
      */
     public LogConfigurationException(String message, Throwable cause) {
         super(message + " (Caused by " + cause + ")");
