@@ -43,9 +43,9 @@ public class JBossLogFactory extends LogFactory {
             "org.apache.commons.logging.log");
 
     // Note that this is effectively static. This could be problematic with if a log manager uses different contexts.
-    // However it's not worth the overhead of trying to determine when a new attribute map would be required given that
+    // However, it's not worth the overhead of trying to determine when a new attribute map would be required given that
     // it's like not a common API.
-    private final Map<String, Object> attributeMap = Collections.synchronizedMap(new HashMap<String, Object>());
+    private final Map<String, Object> attributeMap = Collections.synchronizedMap(new HashMap<>());
     private final Logger logger = Logger.getLogger(JBossLogFactory.class.getPackage().getName());
 
     @Override
@@ -54,13 +54,12 @@ public class JBossLogFactory extends LogFactory {
     }
 
     @Override
-    @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
     public String[] getAttributeNames() {
         final Map<String, Object> attributes = getAttributeMap();
         final String[] names;
         synchronized (attributes) {
             final Set<String> s = attributes.keySet();
-            names = s.toArray(new String[s.size()]);
+            names = s.toArray(new String[0]);
         }
         return names;
     }

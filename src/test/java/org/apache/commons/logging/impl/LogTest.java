@@ -135,7 +135,7 @@ public class LogTest {
         final BlockingDeque<ExtLogRecord> queue;
 
         private QueuedHandler() {
-            queue = new LinkedBlockingDeque<ExtLogRecord>();
+            queue = new LinkedBlockingDeque<>();
         }
 
         @Override
