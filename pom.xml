@@ -24,9 +24,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss</groupId>
-        <artifactId>jboss-parent</artifactId>
-        <version>34</version>
+        <groupId>org.jboss.logging</groupId>
+        <artifactId>logging-parent</artifactId>
+        <version>1.0.1.Final</version>
     </parent>
 
     <groupId>org.jboss.logging</groupId>
@@ -35,20 +35,23 @@
 
 
     <name>Commons Logging to JBoss Logging</name>
-    <url>http://www.jboss.org</url>
-    <description>Apache Commons Logging to JBoss Logging implementation</description>
-    <scm>
-        <connection>scm:git:git://github.com/jboss-logging/commons-logging-jboss-logging.git</connection>
-        <url>https://github.com/jboss-logging/commons-logging-jboss-logging</url>
-    </scm>
 
     <licenses>
         <license>
             <name>Apache License 2.0</name>
-            <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
+            <url>https://repository.jboss.org/licenses/apache-2.0.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+
+    <scm child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false"
+         child.scm.url.inherit.append.path="false">
+        <connection>scm:git:git://github.com/jboss-logging/commons-logging-jboss-logging.git</connection>
+        <developerConnection>scm:git:git@github.com:jboss-logging/commons-logging-jboss-logging.git</developerConnection>
+        <url>https://github.com/jboss-logging/commons-logging-jboss-logging/tree/main/</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <version.junit>4.12</version.junit>
