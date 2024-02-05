@@ -56,7 +56,7 @@
     <properties>
         <version.org.jboss.logging.jboss-logging>3.5.3.Final</version.org.jboss.logging.jboss-logging>
         <version.org.jboss.logmanager.jboss-logmanager>3.0.4.Final</version.org.jboss.logmanager.jboss-logmanager>
-        <version.org.junit>5.10.1</version.org.junit>
+        <version.org.junit>5.10.2</version.org.junit>
     </properties>
     <dependencyManagement>
         <dependencies>
