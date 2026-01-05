@@ -23,18 +23,21 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        java: ['11', '17']
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK ${{ matrix.java }}
-        uses: actions/setup-java@v4
+      - name: Set up JDKs
+        uses: actions/setup-java@v5
         with:
-          java-version: ${{ matrix.java }}
-          distribution: 'temurin'
+          distribution: temurin
           cache: 'maven'
-      - name: Build and Test with Java ${{ matrix.java }}
-        run: mvn -B clean verify
+          java-version: |
+            11
+            17
+            21
+            25
+      - name: Build and Test
+        run: mvn -B clean verify "-Djava11.home=${{env.JAVA_HOME_11_X64}}${{env.JAVA_HOME_11_ARM64}}" "-Djava17.home=${{env.JAVA_HOME_17_X64}}${{env.JAVA_HOME_17_ARM64}}" "-Djava21.home=${{env.JAVA_HOME_21_X64}}${{env.JAVA_HOME_21_ARM64}}" "-Djava25.home=${{env.JAVA_HOME_25_X64}}${{env.JAVA_HOME_25_ARM64}}"
 
   format-check:
     runs-on: ubuntu-latest
@@ -42,10 +45,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 11
+      - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: 25
           distribution: 'temurin'
           cache: 'maven'
       - name: Validate Formatting
