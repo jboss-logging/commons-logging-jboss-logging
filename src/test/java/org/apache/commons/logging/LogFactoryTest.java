@@ -60,6 +60,7 @@ public class LogFactoryTest {
 
     @Test
     public void testServiceProvider() {
+        LogFactoryTest.class.getModule().addUses(LogFactory.class);
         final ServiceLoader<LogFactory> service = ServiceLoader.load(LogFactory.class);
         Assertions.assertNotNull(service);
         Assertions.assertTrue(service.iterator().hasNext());
